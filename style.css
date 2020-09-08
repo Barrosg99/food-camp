@@ -1,0 +1,123 @@
+body /*fonte geral com a cor predominante*/
+{
+  font-family: 'Roboto', sans-serif;
+  background: #EEEEEE;
+  color: #333333;
+}
+/*topo da pagina*/
+header 
+{
+  background: #CF2B2B;
+  color: #FFFFFF;
+  padding: 10px;
+  width: 100%;
+  position: fixed;
+  top:0;
+  box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.5);
+  z-index: 1;
+}
+header h1
+{
+  font-size: 35px;
+  font-family: 'Righteous', cursive;
+}
+header p
+{
+  margin-top: 4px;
+  color: #FFFFFF;
+}
+/*parte principal da pagina*/
+main
+{
+  margin-top:75px; 
+  width: 100%;
+  margin-bottom: 110px;
+}
+main h1
+{
+  padding: 15px 10px 0px;
+  font-size: 25px;
+  font-family: 'Righteous', cursive;
+}
+main ul
+{
+  margin-top: 15px;
+  display: flex;
+  overflow:scroll;
+  margin-right: 10px;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+main ul::-webkit-scrollbar /*tirando o barra de scroll*/
+{
+  display: none;
+}
+/* estilizando os itens prato,bebida e sobremesa*/
+main li
+{
+  background: white;
+  border-radius: 10px;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  margin: 5px 10px;
+  padding: 7px;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.5);
+  position: relative;
+}
+li strong
+{
+  font-size:18px;
+}
+li img
+{
+  width: 125px;
+}
+li p
+{
+  margin: 5px 5px;
+  color: #b9b3b3;
+  font-size: 12px;
+}
+li ion-icon
+{
+  position: absolute;
+  font-size: 20px;
+  color: #32b72f;
+  bottom: 5%;
+  right: 8%;
+  display: none;
+}
+/*  parte de baixo da pag */
+footer
+{
+  background: #ffffff;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+  z-index: 1;
+}
+/*estilizando o botão*/
+button
+{
+  border: 0px;
+  width: 90%;
+  height: 70%;
+  border-radius: 30px;
+  font-family: inherit;
+  background: #CBCBCB;
+  color: #FFFFFF;
+}
+button:focus
+{
+  outline: none;
+}

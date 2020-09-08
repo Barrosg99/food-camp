@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>FoodCamp</title>
+    <link href="reset.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="media/Group_18.png">
+  </head>
+  <body>
+      <header>
+        <h1>FoodCamp</h1>
+        <p>Sua comida em 6 minutos</p>
+      </header>
+  <main>
+    <h1>
+      Primeiro, seu prato
+    </h1>
+    <ul>
+      <li onclick="selected(1);">
+        <figure><img src="media/562561.webp" alt="miojo de carne"></figure>
+        <strong>Miojo de Carne</strong>
+        <p>Macarrão Instantâneo, sabor carne</p>
+        <div><strong>R$ </strong><strong class="preco">1.80</strong></div>
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </li>
+      <li onclick="selected(2);">
+        <figure><img src="media/15856597208888_zoom.jpg" alt="miojo de picanha"></figure>
+        <strong>Miojo de Picanha</strong>
+        <p>Macarrão Instantâneo, sabor picanha</p>
+        <div><strong>R$ </strong><strong class="preco">1.90</strong></div>
+        <ion-icon name="checkmark-circle"></ion-icon>        
+      </li>
+      <li onclick="selected(3);">
+        <figure><img src="media/8780_20171106150821_thumb_8780_MacarraoInstantaneoLamenNissinMiojoBacon85g.jpg" alt="miojo de bacon"></figure>
+        <strong>Miojo de Bacon</strong>
+        <p>Macarrão Instantâneo, sabor Bacon</p>
+        <div><strong>R$ </strong><strong class="preco">1.70</strong></div>   
+        <ion-icon name="checkmark-circle"></ion-icon>     
+      </li>
+      <li onclick="selected(4);">
+        <figure><img src="media/nissin_lamem_alho_2020.png" alt="miojo de camarão com alho"></figure>
+        <strong>Miojo de Camarão com Alho</strong>
+        <p>Macarrão Instantâneo, sabor camarão com alho</p>
+        <div><strong>R$ </strong><strong class="preco">1.60</strong></div>   
+        <ion-icon name="checkmark-circle"></ion-icon>     
+      </li>
+    </ul>
+    <h1>
+      Agora, sua bebida
+    </h1>
+    <ul>
+      <li onclick="selected(5);">
+        <figure><img src="media/8606.jpg" alt="corote de menta"></figure>
+        <strong>Corote de Menta</strong>
+        <p>Corote de sabor, sabor menta</p>
+        <div><strong>R$ </strong><strong class="preco">5.40</strong></div>  
+        <ion-icon name="checkmark-circle"></ion-icon>      
+      </li>
+      <li onclick="selected(6);">
+        <figure><img src="media/915386.jpg" alt="corote de blueberry"></figure>
+        <strong>Corote Azul</strong>
+        <p>Corote de sabor, sabor blueberry</p>
+        <div><strong>R$ </strong><strong class="preco">5.30</strong></div>   
+        <ion-icon name="checkmark-circle"></ion-icon>     
+      </li>
+      <li onclick="selected(7);">
+        <figure><img src="media/download.jpg" alt="corote de limão"></figure>
+        <strong>Corote de Limão</strong>
+        <p>Corote de sabor, sabor limão</p>
+        <div><strong>R$ </strong><strong class="preco">5.20</strong></div> 
+        <ion-icon name="checkmark-circle"></ion-icon>       
+      </li>
+      <li onclick="selected(8);">
+        <figure><img src="media/download (1).jpg" alt="corote de maracujá"></figure>
+        <strong>Corote de Maracujá</strong>
+        <p>Corote de sabor, sabor maracujá</p>
+        <div><strong>R$ </strong><strong class="preco">5.10</strong></div>    
+        <ion-icon name="checkmark-circle"></ion-icon>    
+      </li>
+    </ul>
+    <h1>
+      Por fim, sua sobremesa
+    </h1>
+    <ul>
+      <li onclick="selected(9);">
+        <figure><img src="media/cherrypop-cereja-pro-400x461.png" alt="cherry pop original"></figure>
+        <strong>Cherry Pop Original</strong>
+        <p>Pirulito Cherry Pop, sabor cereja</p>
+        <div><strong>R$ </strong><strong class="preco">0.25</strong></div>   
+        <ion-icon name="checkmark-circle"></ion-icon>     
+      </li>
+      <li onclick="selected(10);">
+        <figure><img src="media/cherrypop-framboesa-pro-400x461.png" alt="cherry pop framboesa"></figure>
+        <strong>Cherry Pop Framboesa</strong>
+        <p>Pirulito Cherry Pop, sabor framboesa</p>
+        <div><strong>R$ </strong><strong class="preco">0.35</strong></div>  
+        <ion-icon name="checkmark-circle"></ion-icon>      
+      </li>
+      <li onclick="selected(11);">
+        <figure><img src="media/cherrypop-macaverde-pro-400x461.png" alt="cherry pop maçã verde"></figure>
+        <strong>Cherry Pop Maçã Verde</strong>
+        <p>Pirulito Cherry Pop, sabor maçã verde</p>
+        <div><strong>R$ </strong><strong class="preco">0.45</strong></div>     
+        <ion-icon name="checkmark-circle"></ion-icon>  
+      </li>
+      <li onclick="selected(12);">
+        <figure><img src="media/cherrypop-morango-pro-400x461.png" alt="cherry pop morango"></figure>
+        <strong>Cherry Pop Morango</strong>
+        <p>Pirulito Cherry Pop, sabor morango</p>
+        <div><strong>R$ </strong><strong class="preco">0.55</strong></div>   
+        <ion-icon name="checkmark-circle"></ion-icon>     
+      </li>
+    </ul>
+  </main>
+  <footer>
+    <button disabled onclick="goWpp();">
+      Selecione os 3 itens<br>para fechar o pedido           
+    </button>
+  </footer>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+  </body>
+</html>
