@@ -8,6 +8,20 @@ var preco = 0
 var p;
 var b;
 var s;
+const menu = {
+  lunch: {
+    selected: null,
+    previousSelected: null
+  },
+  drink: {
+    selected: null,
+    previousSelected: null
+  },
+  dessert: {
+    selected: null,
+    previousSelected: null
+  },
+}
 function calcPreco() //calcula o preço e retorna o total ;
 {
   if(prato==1)
@@ -220,8 +234,9 @@ function calcPreco() //calcula o preço e retorna o total ;
   }
   return preco;
 }
-function selected(x) //seleciona os pedidos e habilita o botao
+function selected(e,x) //seleciona os pedidos e habilita o botao
 {
+  console.log(e.currentTarget);
   if(x==1)
   {
     //adiciona borda verde no selecionado e reseta a bordas dos outros li
@@ -398,6 +413,25 @@ function selected(x) //seleciona os pedidos e habilita o botao
     document.querySelector("button").style.background = "#32B72F"    
   }
 }
+
+let previousSelected = null;
+
+function refactorSelected({ currentTarget }, key) {
+  menu[key].selected = currentTarget;
+
+  if (menu[key].selected === menu[key].previousSelected) {
+    if (!menu[key].selected.classList.toggle("selected")) {
+      menu[key].selected = null;
+    }
+    return;
+  }
+
+  currentTarget.classList.add("selected");
+
+  menu[key].previousSelected && menu[key].previousSelected.classList.remove("selected");
+  menu[key].previousSelected = currentTarget;
+}
+
 function goWpp() //envia a msg pro wpp quando clica no botao 
 {
     var a = prompt("Informe o seu nome, por favor")
