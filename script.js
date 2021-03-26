@@ -1,427 +1,38 @@
-var prato = 0;
-var np;
-var bebida = 0;                               /*  variaveis globais usadas nas funçoes abaixo */
-var nb;                                                       
-var sobremesa = 0;
-var ns;
-var preco = 0
-var p;
-var b;
-var s;
 const menu = {
   lunch: {
     selected: null,
-    previousSelected: null
+    previousSelected: null,
+    price: 0,
+    name: ''
   },
   drink: {
     selected: null,
-    previousSelected: null
+    previousSelected: null,
+    price: 0,
+    name: ''
   },
   dessert: {
     selected: null,
-    previousSelected: null
+    previousSelected: null,
+    price: 0,
+    name: ''
   },
 }
-function calcPreco() //calcula o preço e retorna o total ;
-{
-  if(prato==1)
-  {
-    preco = parseFloat(document.querySelector("li:first-child .preco").innerText);
-    if(bebida==1)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:first-child .preco").innerText);
-      if(sobremesa==1)
-        preco +=parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }      
-    if(bebida==2)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(2) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-    if(bebida==3)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(3) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-    if(bebida==4)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(4) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-  }
-  if(prato==2)
-  {
-    preco = parseFloat(document.querySelector("li:nth-child(2) .preco").innerText);
-    if(bebida==1)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:first-child .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }      
-    if(bebida==2)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(2) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-    if(bebida==3)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(3) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-    if(bebida==4)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(4) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-  }
-  if(prato==3)
-  {
-    preco = parseFloat(document.querySelector("li:nth-child(3) .preco").innerText);
-    if(bebida==1)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:first-child .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }      
-    if(bebida==2)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(2) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-    if(bebida==3)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(3) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-    if(bebida==4)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(4) .preco").innerText);
-      if(sobremesa==1)
-          preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-          preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-          preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-          preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-  }
-  if(prato==4)
-  {
-    var preco = parseFloat(document.querySelector("li:nth-child(4) .preco").innerText);
-    if(bebida==1)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:first-child .preco").innerText);
-      if(sobremesa==1)
-          preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-          preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-          preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-          preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }      
-    if(bebida==2)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(2) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-    if(bebida==3)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(3) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-    if(bebida==4)
-    {
-      preco += parseFloat(document.querySelector("main ul:nth-child(4) li:nth-child(4) .preco").innerText);
-      if(sobremesa==1)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText);
-      if(sobremesa==2)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText);
-      if(sobremesa==3)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText);
-      if(sobremesa==4)
-        preco += parseFloat(document.querySelector("main ul:nth-child(6) li:nth-child(4) .preco").innerText);
-    }
-  }
-  return preco;
-}
-function selected(e,x) //seleciona os pedidos e habilita o botao
-{
-  console.log(e.currentTarget);
-  if(x==1)
-  {
-    //adiciona borda verde no selecionado e reseta a bordas dos outros li
-    document.querySelector("li:first-child").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("li:nth-child(2)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:nth-child(3)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:nth-child(4)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    //adiciona o ion-icon no selecionado e tira dos demais
-    document.querySelector("li:first-child ion-icon").style.display = "initial";
-    document.querySelector("li:nth-child(2) ion-icon").style.display = "none";
-    document.querySelector("li:nth-child(3) ion-icon").style.display = "none";
-    document.querySelector("li:nth-child(4) ion-icon").style.display = "none";
-    prato = 1;
-    np = document.querySelector("li:first-child strong").innerText
-    p = document.querySelector("li:first-child .preco").innerText
-  }
-  else if(x==2)
-  {
-    document.querySelector("li:first-child").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:nth-child(2)").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("li:nth-child(3)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:nth-child(4)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:first-child ion-icon").style.display = "none";
-    document.querySelector("li:nth-child(2) ion-icon").style.display = "initial";
-    document.querySelector("li:nth-child(3) ion-icon").style.display = "none";
-    document.querySelector("li:nth-child(4) ion-icon").style.display = "none";
-    prato = 2;
-    np = document.querySelector("li:nth-child(2) strong").innerText
-    p = document.querySelector("li:nth-child(2) .preco").innerText
-  }
-  else if(x==3)
-  {
-    document.querySelector("li:first-child").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:nth-child(2)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:nth-child(3)").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("li:nth-child(4)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:first-child ion-icon").style.display = "none";
-    document.querySelector("li:nth-child(2) ion-icon").style.display = "none";
-    document.querySelector("li:nth-child(3) ion-icon").style.display = "initial";
-    document.querySelector("li:nth-child(4) ion-icon").style.display = "none";
-    prato = 3;
-    np = document.querySelector("li:nth-child(3) strong").innerText
-    p = document.querySelector("li:nth-child(3) .preco").innerText
-  }
-  else if(x==4)
-  {
-    document.querySelector("li:first-child").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:nth-child(2)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:nth-child(3)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("li:nth-child(4)").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("li:first-child ion-icon").style.display = "none";
-    document.querySelector("li:nth-child(2) ion-icon").style.display = "none";
-    document.querySelector("li:nth-child(3) ion-icon").style.display = "none";
-    document.querySelector("li:nth-child(4) ion-icon").style.display = "initial";
-    prato = 4;
-    np = document.querySelector("li:nth-child(4) strong").innerText
-    p = document.querySelector("li:nth-child(4) .preco").innerText
-  }
-  if(x==5)
-  {
-    document.querySelector("main ul:nth-child(4) li:first-child").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("main ul:nth-child(4) li:nth-child(2)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:nth-child(3)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:nth-child(4)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:first-child ion-icon").style.display = "initial";
-    document.querySelector("main ul:nth-child(4) li:nth-child(2) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(4) li:nth-child(3) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(4) li:nth-child(4) ion-icon").style.display = "none";
-    bebida = 1;
-    nb = document.querySelector("main ul:nth-child(4) li:first-child strong").innerText
-    b = document.querySelector("main ul:nth-child(4) li:first-child .preco").innerText
-  }
-  else if(x==6)
-  {
-    document.querySelector("main ul:nth-child(4) li:first-child").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:nth-child(2)").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("main ul:nth-child(4) li:nth-child(3)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:nth-child(4)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:first-child ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(4) li:nth-child(2) ion-icon").style.display = "initial";
-    document.querySelector("main ul:nth-child(4) li:nth-child(3) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(4) li:nth-child(4) ion-icon").style.display = "none";
-    bebida = 2;
-    nb = document.querySelector("main ul:nth-child(4) li:nth-child(2) strong").innerText
-    b = document.querySelector("main ul:nth-child(4) li:nth-child(2) .preco").innerText
-  }
-  else if(x==7)
-  {
-    document.querySelector("main ul:nth-child(4) li:first-child").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:nth-child(2)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:nth-child(3)").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("main ul:nth-child(4) li:nth-child(4)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:first-child ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(4) li:nth-child(2) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(4) li:nth-child(3) ion-icon").style.display = "initial";
-    document.querySelector("main ul:nth-child(4) li:nth-child(4) ion-icon").style.display = "none";
-    bebida = 3;
-    nb = document.querySelector("main ul:nth-child(4) li:nth-child(3) strong").innerText
-    b = document.querySelector("main ul:nth-child(4) li:nth-child(3) .preco").innerText
-  }
-  else if(x==8)
-  {
-    document.querySelector("main ul:nth-child(4) li:first-child").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:nth-child(2)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:nth-child(3)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(4) li:nth-child(4)").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("main ul:nth-child(4) li:first-child ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(4) li:nth-child(2) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(4) li:nth-child(3) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(4) li:nth-child(4) ion-icon").style.display = "initial";
-    bebida = 4;
-    nb = document.querySelector("main ul:nth-child(4) li:nth-child(4) strong").innerText
-    b = document.querySelector("main ul:nth-child(4) li:nth-child(4) .preco").innerText
-  }
-  if(x==9)
-  {
-    document.querySelector("main ul:nth-child(6) li:first-child").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("main ul:nth-child(6) li:nth-child(2)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:nth-child(3)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:nth-child(4)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:first-child ion-icon").style.display = "initial";
-    document.querySelector("main ul:nth-child(6) li:nth-child(2) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(6) li:nth-child(3) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(6) li:nth-child(4) ion-icon").style.display = "none";
-    sobremesa = 1;
-    ns = document.querySelector("main ul:nth-child(6) li:first-child strong").innerText
-    s = document.querySelector("main ul:nth-child(6) li:first-child .preco").innerText
-  }
-  else if(x==10)
-  {
-    document.querySelector("main ul:nth-child(6) li:first-child").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:nth-child(2)").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("main ul:nth-child(6) li:nth-child(3)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:nth-child(4)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:first-child ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(6) li:nth-child(2) ion-icon").style.display = "initial";
-    document.querySelector("main ul:nth-child(6) li:nth-child(3) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(6) li:nth-child(4) ion-icon").style.display = "none";
-    sobremesa = 2;
-    ns = document.querySelector("main ul:nth-child(6) li:nth-child(2) strong").innerText
-    s = document.querySelector("main ul:nth-child(6) li:nth-child(2) .preco").innerText
-  }
-  else if(x==11)
-  {
-    document.querySelector("main ul:nth-child(6) li:first-child").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:nth-child(2)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:nth-child(3)").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("main ul:nth-child(6) li:nth-child(4)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:first-child ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(6) li:nth-child(2) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(6) li:nth-child(3) ion-icon").style.display = "initial";
-    document.querySelector("main ul:nth-child(6) li:nth-child(4) ion-icon").style.display = "none";
-    sobremesa = 3;
-    ns = document.querySelector("main ul:nth-child(6) li:nth-child(3) strong").innerText
-    s = document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText
-  }
-  else if(x==12)
-  {
-    document.querySelector("main ul:nth-child(6) li:first-child").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:nth-child(2)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:nth-child(3)").style.boxShadow = "0px 0px 5px 0px #00000080";
-    document.querySelector("main ul:nth-child(6) li:nth-child(4)").style.boxShadow = "0px 0px 0px 6px #32b72f";
-    document.querySelector("main ul:nth-child(6) li:first-child ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(6) li:nth-child(2) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(6) li:nth-child(3) ion-icon").style.display = "none";
-    document.querySelector("main ul:nth-child(6) li:nth-child(4) ion-icon").style.display = "initial";
-    sobremesa = 4;
-    ns = document.querySelector("main ul:nth-child(6) li:nth-child(4) strong").innerText
-    s = document.querySelector("main ul:nth-child(6) li:nth-child(3) .preco").innerText
-  }
-  if(prato!=0&&bebida!=0&&sobremesa!=0)
-  {
-    document.querySelector("button").disabled = false;
-    document.querySelector("button").style.background = "#32B72F"    
-  }
-}
-
-let previousSelected = null;
 
 function refactorSelected({ currentTarget }, key) {
   menu[key].selected = currentTarget;
+  menu[key].price = parseFloat(currentTarget.querySelector('.preco').innerText);
+  menu[key].name = currentTarget.querySelector('strong').innerText
 
   if (menu[key].selected === menu[key].previousSelected) {
     if (!menu[key].selected.classList.toggle("selected")) {
       menu[key].selected = null;
+
+      document.querySelector("button").disabled = true;
+      document.querySelector("button").style.background = "#CBCBCB"
+    } else if (menu['lunch'].selected !== null && menu['drink'].selected !== null && menu['dessert'].selected !== null) {
+      document.querySelector("button").disabled = false;
+      document.querySelector("button").style.background = "#32B72F"
     }
     return;
   }
@@ -430,17 +41,34 @@ function refactorSelected({ currentTarget }, key) {
 
   menu[key].previousSelected && menu[key].previousSelected.classList.remove("selected");
   menu[key].previousSelected = currentTarget;
+
+  if (menu['lunch'].selected !== null && menu['drink'].selected !== null && menu['dessert'].selected !== null) {
+    document.querySelector("button").disabled = false;
+    document.querySelector("button").style.background = "#32B72F"
+  }
+}
+
+function refactorCalcPreco() {
+  let soma = 0
+  const keys = ['lunch', 'drink', 'dessert'];
+  keys.forEach(key => {
+    soma += menu[key].price;
+  });
+  return soma
 }
 
 function goWpp() //envia a msg pro wpp quando clica no botao 
 {
-    var a = prompt("Informe o seu nome, por favor")
-    var b = prompt("Informe o seu endereço")
+  var a = prompt("Informe o seu nome, por favor");
+  var b = prompt("Informe o seu endereço");
+
+  if (!a || !b) return alert('Informe o nome e o endereço, por favor');
+
     var frase = `Olá, gostaria de fazer o pedido:
-  - Prato: `+np+`
-  - Bebida: `+nb+`
-  - Sobremesa: `+ns+`
-    Total: R$ `+calcPreco().toFixed(2)+`
+  - Prato: `+ menu.lunch.name +`
+  - Bebida: `+ menu.drink.name +`
+  - Sobremesa: `+ menu.dessert.name +`
+    Total: R$ `+refactorCalcPreco().toFixed(2)+`
     
     Nome: `+a+`
     Endereço: `+b;
