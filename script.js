@@ -72,7 +72,8 @@ function goWpp() //envia a msg pro wpp quando clica no botao
     
     Nome: `+a+`
     Endereço: `+b;
-    var wpp = encodeURIComponent(frase);
-    var stringWpp = ("https://wa.me/5512992372037?text="+wpp)
-    window.open(stringWpp);   
+  var wpp = encodeURIComponent(frase);
+  const phone = '5512992372037';
+  var stringWpp = (`https://wa.me/${phone}?text=` + wpp);
+  window.open(stringWpp);   
 }
